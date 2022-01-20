@@ -141,3 +141,26 @@ export const footerData = [
         ],
     },
 ]
+
+export const navProfile = [
+    {
+        id: 1,
+        text: 'Tin nhắn',
+    },
+    {
+        id: 2,
+        text: 'Thông báo',
+    },
+    {
+        id: 3,
+        text: 'Tài khoản',
+    },
+    {
+        id: 4,
+        text: 'Chuyến đi',
+    },
+    {
+        id: 5,
+        text: 'Danh sách yêu thích',
+    },
+]

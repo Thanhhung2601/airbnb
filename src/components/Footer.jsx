@@ -57,18 +57,18 @@ const Footer = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <div className="bottom-r">
-                                    <div className="language">
-                                        <a href="">
+                                    <a href="">
+                                        <div className="language">
                                             <FiGlobe />
                                             Tiếng việt(VN)
-                                        </a>
-                                    </div>
-                                    <div className="money">
-                                        <a href="">
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div className="money">
                                             <MdAttachMoney />
                                             USD
-                                        </a>
-                                    </div>
+                                        </div>
+                                    </a>
                                     <div className="social-network">
                                         <a href="">
                                             <AiOutlineFacebook />
@@ -122,8 +122,21 @@ const FooterStyled = styled.div`
             }
             .bottom-r {
                 display: flex;
+                gap: 22px;
                 align-items: center;
                 justify-content: end;
+                .language,
+                .money {
+                    display: flex;
+                    align-items: center;
+                }
+                .social-network {
+                    margin-left: 30px;
+                    a {
+                        padding: 0 12px;
+                        font-size: 1.3rem;
+                    }
+                }
             }
         }
     }
