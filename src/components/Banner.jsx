@@ -25,6 +25,7 @@ const Banner = ({ image }) => {
 const BannerStyled = styled.div`
     color: white;
     padding-bottom: 50px;
+    background-color: black;
     .banner-image {
         padding-top: 30px;
         position: relative;

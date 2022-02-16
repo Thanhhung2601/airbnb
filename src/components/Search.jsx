@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { BsSearch } from 'react-icons/bs'
 
-const Search = () => {
+const Search = ({ search, handleSearch, setSearch }) => {
     return (
         <SearchStyled>
             <div className="search">
@@ -11,7 +11,12 @@ const Search = () => {
                     <p className="sp">Bạn sắp đi đâu ?</p>
                 </div>
                 <div className="search-icon">
-                    <input type="text" placeholder="Bắt đầu tìm kiếm" />
+                    <input
+                        type="text"
+                        placeholder="Bắt đầu tìm kiếm"
+                        value={search}
+                        onChange={handleSearch}
+                    />
                     <div className="icon">
                         <BsSearch />
                     </div>
@@ -25,13 +30,14 @@ const SearchStyled = styled.div`
     .search {
         display: flex;
         background-color: white;
-        width: 500px;
+        max-width: 500px;
         margin: auto;
         padding: 12px 30px;
         justify-content: space-between;
         align-items: center;
         border-radius: 50px;
         flex-wrap: wrap;
+        color: black;
         .search-text,
         .search-icon {
             flex-basis: 50%;

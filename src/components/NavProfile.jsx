@@ -12,7 +12,8 @@ const NavProfile = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    const handleSignOut = () => {
+    const handleSignOut = (event) => {
+        event.stopPropagation()
         signOut(authentication)
             .then(async () => {
                 console.log('SignOut success')
@@ -46,14 +47,19 @@ const NavProfile = () => {
 
 const NavProfileStyled = styled.div`
     position: absolute;
-    z-index: 99;
+    z-index: 2;
     width: 220px;
-    top: 130%;
     right: 0;
+    top: 130%;
     padding: 12px 0;
     background-color: white;
     border-radius: 12px;
     text-align: left;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transition: 0.3s ease;
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
     a {
         .logout {
             display: flex;
@@ -64,6 +70,7 @@ const NavProfileStyled = styled.div`
             margin-top: 12px;
             color: black;
             border-top: 1px solid #e6e6e6;
+            cursor: pointer;
             svg {
                 font-size: 1.3rem;
             }
@@ -71,11 +78,13 @@ const NavProfileStyled = styled.div`
     }
     .nav-profile {
         li {
-            padding: 12px;
             list-style: none;
             transition: 0.3s ease;
             a {
+                padding: 12px;
                 color: black;
+                display: inline-block;
+                width: 100%;
             }
             &:hover {
                 background-color: #f2f2f2;

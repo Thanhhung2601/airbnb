@@ -7,13 +7,16 @@ import Footer from '../../components/Footer'
 import { userSelector } from '../../feature/userSelector'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import Banner from '../../components/Banner'
 
 const Home = () => {
     const { user } = useSelector(userSelector)
     const navigate = useNavigate()
 
+    console.log(user.user)
+
     useEffect(() => {
-        if (!user.user) {
+        if (!user.user && !user.isLoging) {
             console.log('check navigate')
             navigate('/login')
         }
@@ -21,7 +24,9 @@ const Home = () => {
 
     return (
         <>
-            <Header />
+            <Header category={'HomeNav'} />
+            <Banner image={'image.jpg'} />
+
             <SmallCard
                 title={'Cảm hứng cho chuyến đi tiếp theo của bạn'}
                 category="smallCard"

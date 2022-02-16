@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export const userSlice = createSlice({
-    name: 'user',
+    name: 'userSlice',
     initialState: {
-        isLoging: false,
+        isLoging: true,
         user: null,
     },
     reducers: {

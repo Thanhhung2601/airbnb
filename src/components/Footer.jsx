@@ -66,7 +66,7 @@ const Footer = () => {
                                     <a href="">
                                         <div className="money">
                                             <MdAttachMoney />
-                                            USD
+                                            VND
                                         </div>
                                     </a>
                                     <div className="social-network">
