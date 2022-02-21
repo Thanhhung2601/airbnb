@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Map from 'react-map-gl'
+import { searchResult } from '../data/searchResult'
 
 const MapBox = () => {
     return (

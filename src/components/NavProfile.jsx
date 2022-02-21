@@ -23,6 +23,13 @@ const NavProfile = () => {
             .catch((error) => console.log(error))
     }
 
+    const handleOnClick = (event, id) => {
+        event.preventDefault()
+        if (id === 3) {
+            navigate('/account-settings')
+        }
+    }
+
     return (
         <NavProfileStyled>
             <div className="nav-profile">
@@ -30,7 +37,14 @@ const NavProfile = () => {
                     {navProfile.map((item) => {
                         return (
                             <li key={item.id}>
-                                <a href="">{item.text}</a>
+                                <a
+                                    href=""
+                                    onClick={(event) =>
+                                        handleOnClick(event, item.id)
+                                    }
+                                >
+                                    {item.text}
+                                </a>
                             </li>
                         )
                     })}

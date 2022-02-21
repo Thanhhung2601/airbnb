@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { searchResult } from '../../data/searchResult'
 import InfoCardSearch from '../../components/InfoCardSearch'
-import { Grid } from '@mui/material'
+import { Grid, Pagination } from '@mui/material'
 import { searchSelector } from '../../feature/searchSelector'
 import { useSelector } from 'react-redux'
 import MapBox from '../../components/Map'
@@ -28,6 +28,9 @@ const SearchResult = () => {
                                 )
                             })}
                         </div>
+                        <div className="pagination">
+                            <Pagination count={10} />
+                        </div>
                     </Grid>
                     <Grid item xs={5}>
                         <div className="map-box">
@@ -41,7 +44,7 @@ const SearchResult = () => {
 }
 
 const SearchResultStyled = styled.div`
-    margin-top: 32px;
+    margin-top: 48px;
     overflow: hidden;
     .search-result {
         .title-rs {
@@ -56,10 +59,13 @@ const SearchResultStyled = styled.div`
             border-bottom: 1px solid #e6e6e6;
         }
         .map-box {
-            position: fixed;
-            top: 90px;
             height: 100%;
             width: 100%;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 22px;
         }
     }
 `

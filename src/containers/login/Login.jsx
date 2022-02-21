@@ -17,7 +17,7 @@ const Login = () => {
             .then(async (res) => {
                 const dataUser = {
                     name: res.user.displayName,
-                    emal: res.user.email,
+                    email: res.user.email,
                 }
                 await dispatch(userSlice.actions.login({ user: dataUser }))
                 navigate('/')

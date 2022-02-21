@@ -22,6 +22,10 @@ const SearchPage = () => {
     const endDateformat = format(new Date(endDate), 'dd MMMM yy')
 
     useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+    useEffect(() => {
         dispatch(
             searchSlice.actions.search({
                 location,
@@ -30,12 +34,14 @@ const SearchPage = () => {
                 NumberofGuests,
             })
         )
-    }, [])
+        console.log('useEffect run')
+    }, [location])
+
+    console.log('component re-render')
 
     return (
         <SearchPageStyled>
             <Header category={'SearchPageNav'} />
-            <h2>This is content search page</h2>
             <SearchResult />
             <Footer />
         </SearchPageStyled>

@@ -4,7 +4,13 @@ import { AiOutlineSearch } from 'react-icons/ai'
 import { searchSelector } from '../feature/searchSelector'
 import { useSelector } from 'react-redux'
 
-const SearchSmall = ({ search, handleSearch, setSearch, searchSmallRef }) => {
+const SearchSmall = ({
+    search,
+    handleSearch,
+    setSearch,
+    searchSmallRef,
+    category,
+}) => {
     const stateSearch = useSelector(searchSelector)
     const valueRedux = `${stateSearch.location} | ${stateSearch.startDate} | ${stateSearch.endDate} | ${stateSearch.NumberofGuests}`
     console.log(stateSearch)
@@ -12,7 +18,7 @@ const SearchSmall = ({ search, handleSearch, setSearch, searchSmallRef }) => {
         searchSmallRef.current.focus()
     }, [])
     return (
-        <SearchStyled>
+        <SearchStyled category={category}>
             <div className="search-sm">
                 <div className="search-sm-input">
                     <input
@@ -36,6 +42,7 @@ const SearchSmall = ({ search, handleSearch, setSearch, searchSmallRef }) => {
 }
 
 const SearchStyled = styled.div`
+    display: ${(props) => (props.category === 'accountPage' ? 'none' : '')};
     .search-sm {
         display: flex;
         margin: auto;

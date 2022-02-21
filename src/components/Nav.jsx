@@ -61,6 +61,7 @@ const Nav = ({ category }) => {
                 setChangeBackground(true)
             } else {
                 setChangeBackground(false)
+                setShowDateRange(false)
             }
         }
     }
@@ -98,7 +99,12 @@ const Nav = ({ category }) => {
                 setShowDateRange(false)
             }
         }
+        if (category === 'accountPage') {
+            setChangeBackground(true)
+        }
     }, [search])
+
+    console.log('NAV RE-RENDER')
 
     const handleSearch = (event) => {
         setSearch(event.target.value)
@@ -176,6 +182,7 @@ const Nav = ({ category }) => {
                                         handleSearch={handleSearch}
                                         setSearch={setSearch}
                                         searchSmallRef={searchSmallRef}
+                                        category={category}
                                     />
                                 ) : (
                                     homeMenu.map((item, index) => {
