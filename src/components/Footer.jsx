@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container, Grid } from '@mui/material'
+import { Grid } from '@mui/material'
 import { footerData } from '../data/homeData'
 import { FiGlobe } from 'react-icons/fi'
 import { MdAttachMoney } from 'react-icons/md'
@@ -9,16 +9,22 @@ import {
     AiOutlineTwitter,
     AiOutlineInstagram,
 } from 'react-icons/ai'
+import Container from './Container'
 
 const Footer = () => {
     return (
         <FooterStyled>
             <div className="footer">
-                <Container maxWidth="xs">
+                <Container>
                     <Grid container spacing={3}>
                         {footerData.map((item, index) => {
                             return (
-                                <Grid item xs={3} key={index}>
+                                <Grid
+                                    className="changeCol"
+                                    item
+                                    xs={3}
+                                    key={index}
+                                >
                                     <div className="footer-section">
                                         <p className="title">{item.title}</p>
                                         <ul>
@@ -37,7 +43,7 @@ const Footer = () => {
                     </Grid>
                     <div className="ft-bt">
                         <Grid container>
-                            <Grid item xs={6}>
+                            <Grid item md={6} xs={12}>
                                 <div className="bottom-l">
                                     <ul>
                                         <li>
@@ -55,20 +61,24 @@ const Footer = () => {
                                     </ul>
                                 </div>
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item md={6} xs={12}>
                                 <div className="bottom-r">
-                                    <a href="">
-                                        <div className="language">
-                                            <FiGlobe />
-                                            Tiếng việt(VN)
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <div className="money">
-                                            <MdAttachMoney />
-                                            VND
-                                        </div>
-                                    </a>
+                                    <div className="lg-l">
+                                        <a href="">
+                                            <div className="language">
+                                                <FiGlobe />
+                                                Tiếng việt(VN)
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div className="mn-ct">
+                                        <a href="">
+                                            <div className="money">
+                                                <MdAttachMoney />
+                                                VND
+                                            </div>
+                                        </a>
+                                    </div>
                                     <div className="social-network">
                                         <a href="">
                                             <AiOutlineFacebook />
@@ -97,7 +107,24 @@ const FooterStyled = styled.div`
     li {
         list-style: none;
     }
+    @media screen and (max-width: 830px) {
+        margin-bottom: 64px;
+        .bottom-r {
+            padding-top: 12px;
+        }
+    }
     .footer {
+        @media screen and (min-width: 1360px) {
+            .MuiContainer-maxWidthXl {
+                max-width: 1360px;
+            }
+        }
+        @media screen and (max-width: 1128px) {
+            .changeCol {
+                flex-basis: 100% !important;
+                max-width: 100% !important;
+            }
+        }
         .footer-section {
             text-align: left;
             li {
@@ -108,12 +135,30 @@ const FooterStyled = styled.div`
                 padding-bottom: 16px;
                 font-weight: 700;
             }
+            @media screen and (max-width: 1128px) {
+                ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    li {
+                        flex-basis: 33.33333%;
+                    }
+                }
+            }
+            @media screen and (max-width: 744px) {
+                ul {
+                    li {
+                        flex-basis: 100%;
+                    }
+                }
+            }
         }
         .ft-bt {
             margin-top: 30px;
             padding-top: 20px;
             border-top: 1px solid #d9d9d9;
+
             .bottom-l {
+                margin: 0 -8px;
                 text-align: left;
                 li {
                     display: inline-block;
@@ -121,7 +166,9 @@ const FooterStyled = styled.div`
                 }
             }
             .bottom-r {
+                margin: 0 -12px;
                 display: flex;
+                flex-wrap: wrap;
                 gap: 22px;
                 align-items: center;
                 justify-content: end;
@@ -135,6 +182,19 @@ const FooterStyled = styled.div`
                     a {
                         padding: 0 12px;
                         font-size: 1.3rem;
+                    }
+                }
+                @media screen and (max-width: 420px) {
+                    .lg-l,
+                    .mn-ct,
+                    .social-network {
+                        flex-basis: 100%;
+                    }
+                    margin: 0;
+                    .social-network {
+                        position: relative;
+                        left: -42px;
+                        text-align: left;
                     }
                 }
             }

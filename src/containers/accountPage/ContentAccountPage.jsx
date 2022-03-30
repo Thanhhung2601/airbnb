@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import { userSelector } from '../../feature/userSelector'
 
 const ContentAccountPage = () => {
-    const { user } = useSelector(userSelector)
+    const user = useSelector(userSelector)
 
     console.log(user)
 
@@ -26,12 +26,20 @@ const ContentAccountPage = () => {
 }
 
 const ContentStyled = styled.div`
-    margin-top: 48px;
-    padding-top: 30px;
+    margin-top: 88px;
+    min-height: calc(100vh - 88px) !important;
+    @media screen and (max-width: 830px) {
+        margin-top: 0;
+    }
     .infor-account {
         text-align: left;
+        padding-top: 30px;
         h1 {
             font-weight: 500;
+            margin-bottom: 8px;
+        }
+        p {
+            font-size: 1.18rem;
         }
     }
 `

@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container } from '@mui/material'
 import ButtonBs from './ButtonBs'
+import Container from './Container'
 
 const HighLightSectionHome = () => {
     return (
         <HighLightStyled>
-            <Container maxWidth="xs">
+            <Container>
                 <div className="highLightSection">
                     <div className="highLightSection-text">
                         <div className="text">
@@ -25,6 +25,7 @@ const HighLightSectionHome = () => {
 const HighLightStyled = styled.div`
     margin-top: 80px;
     padding-bottom: 50px;
+
     .highLightSection {
         padding: 80px;
         background-position: center;
@@ -43,6 +44,11 @@ const HighLightStyled = styled.div`
                     max-width: 700px;
                     color: white;
                     padding-bottom: 150px;
+                }
+                @media screen and (max-width: 1128px) {
+                    h1 {
+                        font-size: 2rem;
+                    }
                 }
             }
         }

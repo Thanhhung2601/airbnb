@@ -1,20 +1,20 @@
 import React from 'react'
 import { smallCard } from '../data/homeData'
 import styled from 'styled-components'
-import { Container, Grid } from '@mui/material'
+import { Grid } from '@mui/material'
+import Container from './Container'
+import TitleHp from './TitleHp'
 
 const SmallCard = ({ title }) => {
     return (
         <SmallCardStyled>
             <div className="small-card">
-                <Container maxWidth="xs">
-                    <div className="title">
-                        <h1>{title}</h1>
-                    </div>
+                <Container>
+                    <TitleHp text={title} />
                     <Grid container spacing={3}>
                         {smallCard.map((item) => {
                             return (
-                                <Grid item xs={3} key={item.id}>
+                                <Grid item md={3} sm={6} xs={12} key={item.id}>
                                     <div className="small-card__item">
                                         <div className="image">
                                             <img src={item.image} alt="" />
@@ -43,14 +43,6 @@ const SmallCard = ({ title }) => {
 const SmallCardStyled = styled.div`
     padding: 50px 0;
     .small-card {
-        .title {
-            text-align: left;
-            padding-bottom: 50px;
-            h1 {
-                font-size: 2.35rem;
-                font-weight: 600;
-            }
-        }
         .small-card__item {
             .image {
                 display: flex;
@@ -69,6 +61,14 @@ const SmallCardStyled = styled.div`
                     font-size: 1.2rem;
                 }
                 border-radius: 0 0 12px 12px;
+                @media screen and (max-width: 1128px) {
+                    h1 {
+                        font-size: 1.6rem;
+                    }
+                    p {
+                        font-size: 1rem;
+                    }
+                }
             }
         }
     }

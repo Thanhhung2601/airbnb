@@ -1,21 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 import { biggerCard } from '../data/homeData'
-import { Container, Grid } from '@mui/material'
+import { Grid } from '@mui/material'
 import ButtonBs from './ButtonBs'
+import Container from './Container'
+import TitleHp from './TitleHp'
 
 const BiggerCard = ({ title }) => {
     return (
         <BiggerCardStyled>
             <div className="bigger-card">
-                <Container maxWidth="xs">
-                    <div className="title">
-                        <h1>{title}</h1>
-                    </div>
+                <Container>
+                    <TitleHp text={title} />
                     <Grid container spacing={3}>
                         {biggerCard.map((item) => {
                             return (
-                                <Grid item xs={6} key={item.id}>
+                                <Grid item sm={6} xs={12} key={item.id}>
                                     <div
                                         className="bigger-card__item"
                                         style={{
@@ -41,14 +41,6 @@ const BiggerCard = ({ title }) => {
 
 const BiggerCardStyled = styled.div`
     .bigger-card {
-        .title {
-            h1 {
-                text-align: left;
-                font-size: 2.5rem;
-                font-weight: 500;
-            }
-            margin-bottom: 50px;
-        }
         .bigger-card__item {
             border-radius: 12px;
             position: relative;
@@ -70,8 +62,20 @@ const BiggerCardStyled = styled.div`
                 padding: 8px;
                 border-radius: 4px;
             }
+            @media screen and (max-width: 830px) {
+                h1 {
+                    font-size: 1.6rem !important;
+                }
+            }
             .btn {
                 margin-top: 40px;
+            }
+            @media screen and (max-width: 1380px) {
+                top: 20px;
+                left: 20px;
+                h1 {
+                    font-size: 2rem;
+                }
             }
         }
     }

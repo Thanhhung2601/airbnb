@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Button } from '@mui/material'
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
@@ -6,10 +6,17 @@ import { authentication } from '../../firebase'
 import { useDispatch } from 'react-redux'
 import { userSlice } from '../../feature/userSlice'
 import { useNavigate } from 'react-router-dom'
+import { userSelector } from '../../feature/userSelector'
+import { useSelector } from 'react-redux'
+import { FaFacebook } from 'react-icons/fa'
+import { AiFillGoogleCircle } from 'react-icons/ai'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 const Login = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const { user } = useSelector(userSelector)
 
     const provider = new GoogleAuthProvider()
     const signInWithGoogle = () => {
@@ -27,19 +34,73 @@ const Login = () => {
             })
     }
 
+    console.log('render')
+
+    useEffect(() => {
+        AOS.init()
+    }, [])
+
     return (
-        <LoginStyled>
-            <div className="login">
+        <LoginStyled style={{ backgroundImage: "url('thumbLg.png')" }}>
+            <div
+                className="login"
+                data-aos="zoom-in-up"
+                data-aos-duration="3500"
+            >
                 <div className="logo">
-                    <svg width="30" height="32" fill="currentcolor">
-                        <path d="M29.24 22.68c-.16-.39-.31-.8-.47-1.15l-.74-1.67-.03-.03c-2.2-4.8-4.55-9.68-7.04-14.48l-.1-.2c-.25-.47-.5-.99-.76-1.47-.32-.57-.63-1.18-1.14-1.76a5.3 5.3 0 00-8.2 0c-.47.58-.82 1.19-1.14 1.76-.25.52-.5 1.03-.76 1.5l-.1.2c-2.45 4.8-4.84 9.68-7.04 14.48l-.06.06c-.22.52-.48 1.06-.73 1.64-.16.35-.32.73-.48 1.15a6.8 6.8 0 007.2 9.23 8.38 8.38 0 003.18-1.1c1.3-.73 2.55-1.79 3.95-3.32 1.4 1.53 2.68 2.59 3.95 3.33A8.38 8.38 0 0022.75 32a6.79 6.79 0 006.75-5.83 5.94 5.94 0 00-.26-3.5zm-14.36 1.66c-1.72-2.2-2.84-4.22-3.22-5.95a5.2 5.2 0 01-.1-1.96c.07-.51.26-.96.52-1.34.6-.87 1.65-1.41 2.8-1.41a3.3 3.3 0 012.8 1.4c.26.4.45.84.51 1.35.1.58.06 1.25-.1 1.96-.38 1.7-1.5 3.74-3.21 5.95zm12.74 1.48a4.76 4.76 0 01-2.9 3.75c-.76.32-1.6.41-2.42.32-.8-.1-1.6-.36-2.42-.84a15.64 15.64 0 01-3.63-3.1c2.1-2.6 3.37-4.97 3.85-7.08.23-1 .26-1.9.16-2.73a5.53 5.53 0 00-.86-2.2 5.36 5.36 0 00-4.49-2.28c-1.85 0-3.5.86-4.5 2.27a5.18 5.18 0 00-.85 2.21c-.13.84-.1 1.77.16 2.73.48 2.11 1.78 4.51 3.85 7.1a14.33 14.33 0 01-3.63 3.12c-.83.48-1.62.73-2.42.83a4.76 4.76 0 01-5.32-4.07c-.1-.8-.03-1.6.29-2.5.1-.32.25-.64.41-1.02.22-.52.48-1.06.73-1.6l.04-.07c2.16-4.77 4.52-9.64 6.97-14.41l.1-.2c.25-.48.5-.99.76-1.47.26-.51.54-1 .9-1.4a3.32 3.32 0 015.09 0c.35.4.64.89.9 1.4.25.48.5 1 .76 1.47l.1.2c2.44 4.77 4.8 9.64 7 14.41l.03.03c.26.52.48 1.1.73 1.6.16.39.32.7.42 1.03.19.9.29 1.7.19 2.5z"></path>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="5rem"
+                        height="5rem"
+                        fill="none"
+                        viewBox="0 0 602 602"
+                    >
+                        <g>
+                            <path
+                                stroke="#E91E63"
+                                strokeMiterlimit="10"
+                                strokeWidth="24"
+                                d="M274.151 201.657c66.903-17.997 131.399-24.32 182.018-19.756l1.077-11.95-1.077 11.95c30.477 2.747 55.643 9.518 73.763 18.622 18.414 9.252 27.823 19.969 30.45 29.72h0c2.776 10.303-.231 25.206-12.364 43.484-11.936 17.98-31.68 37.56-58.646 56.139v.001c-40.663 28.018-98.24 52.637-161.885 69.759-65.406 17.596-128.7 26.024-178.487 21.651h0c-31.569-2.772-57.609-10.095-76.356-19.82-19.058-9.886-28.938-21.326-31.677-31.495h0c-2.636-9.786-.088-23.613 10.677-40.523 10.622-16.687 28.385-34.904 52.944-52.425l-6.724-9.425 6.724 9.425c41.556-29.647 101.985-57.176 169.563-75.357zm0 0l-3.116-11.583 3.116 11.583z"
+                            ></path>
+                            <path
+                                stroke="#E91E63"
+                                strokeMiterlimit="10"
+                                strokeWidth="24"
+                                d="M373.214 228.061c49.036 48.941 86.758 101.635 108.114 147.755l10.889-5.042-10.889 5.042c12.859 27.768 19.578 52.949 20.754 73.194 1.194 20.573-3.382 34.081-10.514 41.232h0c-7.535 7.555-21.944 12.403-43.839 11.035-21.539-1.346-48.366-8.656-77.939-22.719l-.001-.001c-44.594-21.205-94.702-58.759-141.351-105.317l-8.138 8.153 8.138-8.153c-47.94-47.846-86.885-98.447-107.99-143.751h0c-13.383-28.726-20.062-54.939-21.013-76.038-.967-21.448 4-35.725 11.437-43.182h0c7.157-7.176 20.405-11.883 40.432-11.016 19.761.856 44.419 7.13 71.872 19.639l4.975-10.92-4.975 10.92c46.451 21.165 100.505 59.734 150.038 109.169zm0 0l8.477-8.494-8.477 8.494z"
+                            ></path>
+                            <path
+                                stroke="#E91E63"
+                                strokeMiterlimit="10"
+                                strokeWidth="24"
+                                d="M325.98 494.55l9.811 6.909-9.811-6.909c-17.619 25.02-36.067 43.429-53.012 54.569-17.221 11.322-31.207 14.112-40.966 11.511h0c-10.311-2.747-21.714-12.801-31.476-32.447-9.604-19.326-16.687-46.213-19.294-78.855v-.001c-3.933-49.221 3.537-111.393 20.533-175.07l-11.594-3.095 11.594 3.095c17.467-65.44 41.817-124.466 70.5-165.396h0c18.186-25.953 37.549-44.843 55.345-56.216 18.091-11.562 32.94-14.398 43.117-11.686h0c9.793 2.61 20.494 11.73 29.756 29.506 9.139 17.541 16.035 42.032 18.928 72.06 4.896 50.811-1.48 116.906-19.526 184.519-17.867 66.937-44.642 125.951-73.905 167.506z"
+                            ></path>
+                            <animateTransform
+                                attributeName="transform"
+                                attributeType="XML"
+                                dur="20s"
+                                from="0 301 301"
+                                repeatCount="indefinite"
+                                to="360 301 301"
+                                type="rotate"
+                            ></animateTransform>
+                        </g>
+                        <path
+                            fill="#E91E63"
+                            d="M301.007 269.002a62.496 62.496 0 00-4.799-4.301c-1.568-1.254-3.439-2.596-5.615-4.026a30.06 30.06 0 00-7.055-3.411c-2.527-.842-5.007-1.264-7.436-1.264-8.779 0-15.657 2.43-20.635 7.29-4.979 4.859-7.467 11.601-7.467 20.223 0 8.661 4.488 17.479 13.463 26.455 0 0 24.492 21.967 39.544 36.043 15.053-14.076 39.545-36.043 39.545-36.043 8.975-8.976 13.463-17.794 13.463-26.455 0-8.622-2.488-15.364-7.467-20.223-4.978-4.86-11.856-7.29-20.635-7.29-2.429 0-4.909.422-7.436 1.264a30.06 30.06 0 00-7.055 3.411c-2.176 1.43-4.047 2.772-5.615 4.026a62.699 62.699 0 00-4.8 4.301z"
+                        ></path>
                     </svg>
                 </div>
                 <div className="login-google" onClick={signInWithGoogle}>
-                    <Button>Sigin with google</Button>
+                    <Button color="inherit" fullWidth={true}>
+                        <AiFillGoogleCircle />
+                        Sigin with google
+                    </Button>
                 </div>
                 <div className="login-facebook">
-                    <Button>Sigin with facebook</Button>
+                    <Button color="inherit">
+                        {' '}
+                        <FaFacebook /> Sigin with facebook
+                    </Button>
                 </div>
             </div>
         </LoginStyled>
@@ -52,17 +113,21 @@ const LoginStyled = styled.div`
     align-items: center;
     height: 100vh;
     width: 100%;
-    background-color: black;
+    background-size: cover;
+    background-position: center;
     .login {
-        padding: 80px;
+        padding: 60px 70px;
         border-radius: 12px;
         background-color: white;
-        svg {
-            display: inline-block;
-            font-size: 3rem !important;
-        }
         .login-google {
             margin: 22px 0;
+        }
+        .login-google,
+        .login-facebook {
+            svg {
+                margin-right: 8px;
+                font-size: 1.2rem;
+            }
         }
     }
 `

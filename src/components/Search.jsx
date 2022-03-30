@@ -28,6 +28,9 @@ const Search = ({ search, handleSearch, setSearch }) => {
 
 const SearchStyled = styled.div`
     .search {
+        @media screen and (max-width: 830px) {
+            display: none;
+        }
         display: flex;
         background-color: white;
         max-width: 500px;

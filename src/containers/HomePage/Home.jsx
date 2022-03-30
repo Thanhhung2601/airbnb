@@ -4,26 +4,28 @@ import SmallCard from '../../components/SmallCard'
 import BiggerCard from '../../components/BiggerCard'
 import HighLightSectionHome from '../../components/HighLightSectionHome'
 import Footer from '../../components/Footer'
-import { userSelector } from '../../feature/userSelector'
-import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Banner from '../../components/Banner'
+import { userSlice } from '../../feature/userSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { userSelector } from '../../feature/userSelector'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import NavBottom from '../../components/NavBottom'
 
 const Home = () => {
-    const { user } = useSelector(userSelector)
     const navigate = useNavigate()
-
-    console.log(user.user)
+    const user = useSelector(userSelector)
 
     useEffect(() => {
+        AOS.init()
         if (!user.user && !user.isLoging) {
-            console.log('check navigate')
             navigate('/login')
         }
     }, [])
 
     return (
-        <>
+        <div data-aos="fade-in" data-aos-duration="4000">
             <Header category={'HomeNav'} />
             <Banner image={'image.jpg'} />
 
@@ -33,8 +35,9 @@ const Home = () => {
             />
             <BiggerCard title={'Khám phá Trải nghiệm Airbnb'} />
             <HighLightSectionHome />
+            <NavBottom />
             <Footer />
-        </>
+        </div>
     )
 }
 

@@ -1,25 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { searchResult } from '../../data/searchResult'
 import InfoCardSearch from '../../components/InfoCardSearch'
 import { Grid, Pagination } from '@mui/material'
 import { searchSelector } from '../../feature/searchSelector'
 import { useSelector } from 'react-redux'
 import MapBox from '../../components/Map'
+import ButtonMap from '../../components/ButtonMap'
 
 const SearchResult = () => {
     const search = useSelector(searchSelector)
-    console.log(search)
+    const [showMapFixed, setShowMapFixed] = useState(false)
+
     return (
         <SearchResultStyled>
             <div className="search-result">
-                <Grid className="s-r-container" container spacing={3}>
-                    <Grid item xs={7}>
+                <Grid className="s-r-container result" container spacing={3}>
+                    <Grid item xs={7} className="result">
                         <div className="title-rs">
                             <p>300+ stay in {search.location}</p>
                         </div>
                         <div className="items">
-                            {searchResult.map((item) => {
+                            {search.result.map((item) => {
                                 return (
                                     <InfoCardSearch
                                         key={item.img}
@@ -33,19 +34,31 @@ const SearchResult = () => {
                         </div>
                     </Grid>
                     <Grid item xs={5}>
-                        <div className="map-box">
-                            <MapBox />
-                        </div>
+                        <MapBox showMap={showMapFixed} />
                     </Grid>
                 </Grid>
             </div>
+            <ButtonMap showMap={showMapFixed} setShowMap={setShowMapFixed} />
         </SearchResultStyled>
     )
 }
 
 const SearchResultStyled = styled.div`
-    margin-top: 48px;
+    margin-top: 88px;
     overflow: hidden;
+
+    @media screen and (max-width: 830px) {
+        margin-top: 0;
+    }
+    @media screen and (max-width: 1128px) {
+        .result {
+            flex-basis: 100%;
+            max-width: 100%;
+            .infoCard-description {
+                padding-right: 24px;
+            }
+        }
+    }
     .search-result {
         .title-rs {
             text-align: left;
@@ -58,7 +71,7 @@ const SearchResultStyled = styled.div`
         .items {
             border-bottom: 1px solid #e6e6e6;
         }
-        .map-box {
+        .hidden-map {
             height: 100%;
             width: 100%;
         }

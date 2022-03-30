@@ -1,5 +1,6 @@
 export const searchResult = [
     {
+        id: 'a72c77b8-9c26-11ec-b909-0242ac120002',
         img: 'https://links.papareact.com/xqj',
         location: 'Private room in center of London',
         title: 'Stay at this spacious Edwardian House',
@@ -10,8 +11,10 @@ export const searchResult = [
         total: '£117 total',
         long: -0.0022275,
         lat: 51.5421655,
+        liked: false,
     },
     {
+        id: 'a72c7aba-9c26-11ec-b909-0242ac120002',
         img: 'https://links.papareact.com/hz2',
         location: 'Private room in center of London',
         title: 'Independant luxury studio apartment',
@@ -22,8 +25,10 @@ export const searchResult = [
         total: '£157 total',
         long: -0.095091,
         lat: 51.48695,
+        liked: false,
     },
     {
+        id: 'a72c7f4c-9c26-11ec-b909-0242ac120002',
         img: 'https://links.papareact.com/uz7',
         location: 'Private room in center of London',
         title: 'London Studio Apartments',
@@ -34,8 +39,10 @@ export const searchResult = [
         total: '£207 total',
         long: -0.135638,
         lat: 51.521916,
+        liked: false,
     },
     {
+        id: 'a72c80aa-9c26-11ec-b909-0242ac120002',
         img: 'https://links.papareact.com/6as',
         location: 'Private room in center of London',
         title: '30 mins to Oxford Street, Excel London',
@@ -46,8 +53,10 @@ export const searchResult = [
         total: '£320 total',
         long: -0.069961,
         lat: 51.472618,
+        liked: false,
     },
     {
+        id: 'a72c821c-9c26-11ec-b909-0242ac120002',
         img: 'https://links.papareact.com/xhc',
         location: 'Private room in center of London',
         title: 'Spacious Peaceful Modern Bedroom',
@@ -58,8 +67,10 @@ export const searchResult = [
         total: '£450 total',
         long: -0.08472,
         lat: 51.510794,
+        liked: false,
     },
     {
+        id: 'a72c83de-9c26-11ec-b909-0242ac120002',
         img: 'https://links.papareact.com/pro',
         location: 'Private room in center of London',
         title: 'The Blue Room In London',
@@ -70,8 +81,10 @@ export const searchResult = [
         total: '£480 total',
         long: -0.094116,
         lat: 51.51401,
+        liked: false,
     },
     {
+        id: 'a72c8596-9c26-11ec-b909-0242ac120002',
         img: 'https://links.papareact.com/8w2',
         location: 'Private room in center of London',
         title: '5 Star Luxury Apartment',
@@ -82,5 +95,6 @@ export const searchResult = [
         total: '£650 total',
         long: -0.109889,
         lat: 51.521245,
+        liked: false,
     },
 ]

@@ -5,12 +5,15 @@ import { RiLogoutBoxLine } from 'react-icons/ri'
 import { authentication } from '../firebase'
 import { signOut } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { userSlice } from '../feature/userSlice'
+import { userSelector } from '../feature/userSelector'
+import { useEffect } from 'react'
 
 const NavProfile = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const user = useSelector(userSelector)
 
     const handleSignOut = (event) => {
         event.stopPropagation()
@@ -27,6 +30,9 @@ const NavProfile = () => {
         event.preventDefault()
         if (id === 3) {
             navigate('/account-settings')
+        }
+        if (id === 5) {
+            navigate('/wishlists')
         }
     }
 

@@ -1,3 +1,7 @@
+:root {
+    --red: red;
+}
+
 .App {
     text-align: center;
 }
@@ -17,10 +21,20 @@
 .App-link {
     color: #61dafb;
 }
-.MuiContainer-maxWidthXs {
-    max-width: 1360px !important;
+/* .MuiContainer-maxWidthXl {
     padding: 0 !important;
+} */
+/* @media screen and (min-width: 1300px) {
+    .MuiContainer-maxWidthXl {
+        max-width: 1360px !important;
+    }
 }
+@media screen and (max-width: 1300px) {
+    .MuiContainer-maxWidthXl {
+        max-width: 1108px !important;
+    }
+} */
+
 @keyframes App-logo-spin {
     from {
         transform: rotate(0deg);

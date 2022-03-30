@@ -42,7 +42,7 @@ const SearchSmall = ({
 }
 
 const SearchStyled = styled.div`
-    display: ${(props) => (props.category === 'accountPage' ? 'none' : '')};
+    display: ${(props) => (props.category === 'hiddenSearch' ? 'none' : '')};
     .search-sm {
         display: flex;
         margin: auto;

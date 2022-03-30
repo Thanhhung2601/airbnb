@@ -6,6 +6,7 @@ const ButtonBs = ({ text }) => {
 }
 
 const ButtonBsStyled = styled.span`
+    display: inline-block;
     background-color: white;
     padding: 12px 22px;
     border-radius: 8px;

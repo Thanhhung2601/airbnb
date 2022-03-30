@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Container, Grid } from '@mui/material'
+import { Grid } from '@mui/material'
+import Container from './Container'
 
 const Banner = ({ image }) => {
     return (
         <BannerStyled>
-            <Container maxWidth="xs">
+            <Container>
                 <div className="banner-image">
                     <img src={image} alt="" />
                     <div className="banner-text">
@@ -26,7 +27,27 @@ const BannerStyled = styled.div`
     color: white;
     padding-bottom: 50px;
     background-color: black;
+    @media screen and (min-width: 1360px) {
+        .MuiContainer-maxWidthXl {
+            max-width: 1360px;
+        }
+    }
     .banner-image {
+        @media screen and (max-width: 830px) {
+            padding-top: 0;
+            h1 {
+                padding: 8px !important;
+                font-size: 1.6rem !important;
+                white-space: nowrap;
+            }
+            .bgr {
+                margin-top: 14px !important;
+                padding: 8px 12px !important;
+                .btn-find {
+                    font-size: 1.2rem !important;
+                }
+            }
+        }
         padding-top: 30px;
         position: relative;
         img {
@@ -53,6 +74,7 @@ const BannerStyled = styled.div`
                 .btn-find {
                     display: inline-block;
                     font-size: 1.5rem;
+                    white-space: nowrap;
                     -webkit-text-fill-color: transparent !important;
                     background: -webkit-linear-gradient(
                         90deg,
