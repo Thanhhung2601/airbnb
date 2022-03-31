@@ -40,7 +40,6 @@ const NavBottom = () => {
     const [isActive, setIsActive] = useState(1)
     const navigate = useNavigate()
     const { pathname } = useLocation()
-    console.log(pathname)
 
     const handleOnClick = (id) => {
         setIsActive(id)

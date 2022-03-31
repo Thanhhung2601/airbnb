@@ -3,11 +3,27 @@ import styled from 'styled-components'
 import { Container } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { userSelector } from '../../feature/userSelector'
+import { Button } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
+import { authentication } from '../../firebase'
+import { signOut } from 'firebase/auth'
+import { useDispatch } from 'react-redux'
+import { userSlice } from '../../feature/userSlice'
 
 const ContentAccountPage = () => {
     const user = useSelector(userSelector)
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
 
-    console.log(user)
+    const handleSignOut = () => {
+        signOut(authentication)
+            .then(async () => {
+                console.log('SignOut success')
+                await dispatch(userSlice.actions.logout({}))
+                navigate('/login')
+            })
+            .catch((error) => console.log(error))
+    }
 
     return (
         <ContentStyled>
@@ -19,6 +35,16 @@ const ContentAccountPage = () => {
                             user.user.email
                         }`}</p>
                     )}
+                    <div className="log-out">
+                        <Button
+                            onClick={handleSignOut}
+                            color="inherit"
+                            variant="outlined"
+                            fullWidth
+                        >
+                            Đăng xuất
+                        </Button>
+                    </div>
                 </div>
             </Container>
         </ContentStyled>
@@ -40,6 +66,13 @@ const ContentStyled = styled.div`
         }
         p {
             font-size: 1.18rem;
+        }
+        .log-out {
+            display: none;
+            margin-top: 24px;
+            @media screen and (max-width: 830px) {
+                display: block;
+            }
         }
     }
 `

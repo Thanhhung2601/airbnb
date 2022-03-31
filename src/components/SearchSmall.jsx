@@ -13,7 +13,6 @@ const SearchSmall = ({
 }) => {
     const stateSearch = useSelector(searchSelector)
     const valueRedux = `${stateSearch.location} | ${stateSearch.startDate} | ${stateSearch.endDate} | ${stateSearch.NumberofGuests}`
-    console.log(stateSearch)
     useEffect(() => {
         searchSmallRef.current.focus()
     }, [])

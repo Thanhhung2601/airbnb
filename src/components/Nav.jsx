@@ -30,7 +30,6 @@ const Nav = ({ category }) => {
         event.preventDefault()
         setActive(id)
     }
-    console.log(fixedNavMb)
     const handleEventScroll = () => {
         if (category === 'HomeNav') {
             window.scrollY > 0 && window.innerWidth <= 830

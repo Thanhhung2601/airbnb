@@ -85,6 +85,7 @@ const DateRangeCpn = ({ search, handleClose }) => {
                                 navigate(
                                     `/search?location=${search}&startDate=${dateRange.startDate}&endDate=${dateRange.endDate}&NumberofGuests=${dateRange.numberOfGuests}`
                                 )
+                                handleClose()
                             }}
                         >
                             Search

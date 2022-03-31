@@ -36,10 +36,7 @@ const SearchPage = () => {
                 NumberofGuests,
             })
         )
-        console.log('useEffect run')
     }, [location])
-
-    console.log('component re-render')
 
     return (
         <div data-aos="fade-in" data-aos-duration="4000">

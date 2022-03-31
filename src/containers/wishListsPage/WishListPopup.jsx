@@ -22,7 +22,6 @@ const WishListPopup = ({ setShowPopup, wish }) => {
     const handleClose = () => {
         createNew ? setCreateNew(false) : setShowPopup(false)
     }
-    console.log('Popup', wishLists)
 
     const handleAddWish = (item) => {
         const newWish = { ...wish }

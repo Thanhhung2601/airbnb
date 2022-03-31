@@ -8,6 +8,11 @@ const SearchMobile = ({ searchMobile, setSearchMobile }) => {
     const handleOnChange = (event) => {
         setvalueInput(event.target.value)
     }
+
+    const handleClose = () => {
+        setSearchMobile(false)
+    }
+
     return (
         <SearchMobileStyled>
             <div className={searchMobile ? 'tf show' : ' tf'}>
@@ -30,7 +35,10 @@ const SearchMobile = ({ searchMobile, setSearchMobile }) => {
                     </div>
                     {valueInput && (
                         <div className="dr-st">
-                            <DateRangeCpn />
+                            <DateRangeCpn
+                                search={valueInput}
+                                handleClose={handleClose}
+                            />
                         </div>
                     )}
                 </div>
@@ -55,6 +63,7 @@ const SearchMobileStyled = styled.div`
         left: 0;
         right: 0;
         bottom: 0;
+        overflow: auto;
         background-color: white;
         transform: translateY(100%);
         transition: 0.3s ease;
@@ -100,7 +109,13 @@ const SearchMobileStyled = styled.div`
         .dr-st {
             position: absolute;
             top: 100px;
-            left: 65px;
+            left: 0;
+            right: 0;
+            @media screen and (max-width: 580px) {
+                .btn-bottom {
+                    padding: 12px 16px;
+                }
+            }
         }
     }
 `

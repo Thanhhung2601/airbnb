@@ -30,7 +30,6 @@ const InfoCardSearch = ({ data }) => {
             })
         }
     }
-    console.log(wishlist)
 
     return (
         <InfoCardStyled>

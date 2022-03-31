@@ -75,24 +75,7 @@ const BannerStyled = styled.div`
                     display: inline-block;
                     font-size: 1.5rem;
                     white-space: nowrap;
-                    -webkit-text-fill-color: transparent !important;
-                    background: -webkit-linear-gradient(
-                        90deg,
-                        #6f019c 0%,
-                        #c6017e 135.12%
-                    ) !important;
-                    background: -moz-linear-gradient(
-                        90deg,
-                        #6f019c 0%,
-                        #c6017e 135.12%
-                    ) !important;
-                    background: linear-gradient(
-                        90deg,
-                        #6f019c 0%,
-                        #c6017e 135.12%
-                    ) !important;
-                    -webkit-background-clip: -webkit-text !important;
-                    -webkit-background-clip: text !important;
+                    color: #ff385c;
                 }
             }
         }

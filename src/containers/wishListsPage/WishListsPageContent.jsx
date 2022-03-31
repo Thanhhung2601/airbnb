@@ -9,7 +9,6 @@ import Container from '../../components/Container'
 const WishListsPageContent = () => {
     const wishList = useSelector(wishListSelector)
     const navigate = useNavigate()
-    console.log('wishList page ', wishList)
 
     return (
         <WishListStyled>
