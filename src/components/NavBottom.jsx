@@ -106,6 +106,7 @@ const NavBottomStyled = styled.div`
     right: 0;
     display: none;
     background-color: white;
+    z-index: 999;
     @media screen and (max-width: 830px) {
         display: block;
     }

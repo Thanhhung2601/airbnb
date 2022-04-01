@@ -34,6 +34,7 @@ const ButtonStyled = styled.div`
         cursor: pointer;
         span {
             padding-right: 8px;
+            white-space: nowrap;
         }
     }
 `

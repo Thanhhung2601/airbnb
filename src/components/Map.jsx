@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import Map from 'react-map-gl'
+import Map, { FullscreenControl } from 'react-map-gl'
 import styled from 'styled-components'
-
+import 'mapbox-gl/dist/mapbox-gl.css'
 const MapBox = ({ showMap }) => {
     return (
         <MapStyled>
@@ -16,7 +16,9 @@ const MapBox = ({ showMap }) => {
                     mapboxAccessToken={process.env.REACT_APP_MAPBOXACCESSTOKEN}
                     width="100%"
                     height="100%"
-                />
+                >
+                    <FullscreenControl />
+                </Map>
             </div>
         </MapStyled>
     )

@@ -66,7 +66,7 @@ const SearchResultStyled = styled.div`
             font-size: 1.2rem;
         }
         .s-r-container {
-            margin-left: 0;
+            padding-left: 24px;
         }
         .items {
             border-bottom: 1px solid #e6e6e6;
